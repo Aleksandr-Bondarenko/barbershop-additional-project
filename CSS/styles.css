@@ -54,6 +54,7 @@ address {
 
 .container {
   max-width: 1200px;
+  /* width: 1200px; */
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -74,6 +75,10 @@ address {
   padding: 11px 19px;
   min-width: 160px;
   /* height: 40px; */
+
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 1px solid var(--action-color);
@@ -158,6 +163,7 @@ address {
   color: var(--secondary-text-color-for-dark-theme);
 }
 
+/* .light-theme-btn, */
 .light-theme-btn,
 .socials-link-list .link,
 .light-theme-descr,
@@ -165,15 +171,27 @@ address {
   color: var(--secondary-text-color-for-light-theme);
 }
 
+.socials-link-list .link {
+  transition: color 250ms linear;
+}
 /* ----- END COMPONENTS ----- */
 
 /* ----- HEADER ----- */
-/* нужно переделать */
-header {
-  margin-top: 26px;
+.header .link {
+  display: block;
 }
 
-header .container {
+.logo:hover {
+  animation-name: pulse;
+  /* transition-duration: 1000ms; */
+}
+
+.header {
+  padding-top: 32px;
+  background-color: grey;
+}
+
+.header > .container {
   display: flex;
   align-items: center;
 }
@@ -187,27 +205,22 @@ header .container {
 .site-nav + .link {
   font-weight: 600;
   font-size: 12px;
-  line-height: 1.333em;
-  letter-spacing: 0.1em;
+  line-height: 1.35;
+  letter-spacing: 0.09em;
 }
 
 .site-nav-list .link {
-  padding: 10px 0 17px;
-  /* color: var(--secondary-text-color-for-dark-theme); */
-  color: black;
-  transition: color 250ms linear;
+  padding: 20px 0;
 }
 
+.site-nav-list .link,
 .site-nav + .link {
-  /* color: var(--secondary-text-color-for-dark-theme); */
-  color: black;
+  color: var(--secondary-text-color-for-dark-theme);
   transition: color 250ms linear;
 }
 
-.site-nav .link:hover,
-.site-nav .link:focus,
-.site-nav + .link:hover,
-.site-nav + .link:focus {
+.header .link:hover,
+.header .link:focus {
   color: var(--action-color);
 }
 
@@ -222,6 +235,18 @@ header .container {
 /* ----- END HEADER ----- */
 
 /* ----- HERO ----- */
+.hero > .container {
+  display: flex;
+}
+
+.hero-left-side {
+  transform: rotate(-90deg);
+}
+
+.hero-right-side {
+  padding: 0 470px 206px 0;
+}
+
 .hero-title {
   font-family: var(--secondary-font);
   font-weight: 700;
@@ -230,11 +255,17 @@ header .container {
   letter-spacing: 0.05em;
   color: var(--secondary-text-color-for-dark-theme);
 }
+
+.hero-title {
+  margin-bottom: 20px;
+}
+
 /* ----- END HERO ----- */
 
 /* ----- ABOUT ----- */
 .about {
   padding: var(--section-top-bottom-padding) 0;
+  background-color: var(--primary-bgc);
 }
 
 .about > .container {
@@ -253,7 +284,7 @@ header .container {
   margin-right: 64px;
 }
 
-.about .section-description,
+.section-description,
 .about .section-title,
 .about .section-text {
   margin-bottom: 20px;
@@ -273,7 +304,84 @@ header .container {
 
 /* ----- END ABOUT ----- */
 
+/* ----- PRICES ----- */
+.prices {
+  padding: var(--section-top-bottom-padding) 0;
+  background-color: #111319;
+  background-image: url(../images/prices/bg-img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.prices .section-title {
+  margin-bottom: 44px;
+}
+
+.prices-box {
+  display: flex;
+}
+
+.prices-part {
+  padding: 30px 40px;
+  width: 50%;
+  margin-bottom: 50px;
+}
+
+.left.prices-part {
+  background-image: linear-gradient(
+    180deg,
+    #171a24 0%,
+    rgba(23, 26, 36, 0.2) 100%
+  );
+}
+
+.right.prices-part {
+  background-image: linear-gradient(
+    180deg,
+    #090b13 0%,
+    rgba(9, 11, 19, 0.2) 100%
+  );
+}
+
+.prices-part > .item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prices-part > .item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.service::after {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 50px;
+  background-color: red;
+}
+
+.service {
+  /* margin-right: auto; */
+  display: inline-block;
+}
+
+.cost {
+  margin-left: auto;
+  display: inline-block;
+}
+
+.prices .btn {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ----- END PRICES ----- */
+
 /* ----- ADVANTAGES ----- */
+.advantages {
+  background-color: var(--primary-bgc);
+}
+
 .progress-value {
   font-weight: 600;
   font-size: 42px;
@@ -291,9 +399,33 @@ header .container {
   color: var(--secondary-text-color-for-light-theme);
 }
 
+.progress-list > .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 170px;
+  height: 133px;
+  background-color: var(--light-bgc);
+}
+
+.advantages-part > .section-title {
+  margin-bottom: 20px;
+}
+
 /* ----- END ADVANTAGES ----- */
 
 /* ----- MASTERS ----- */
+.masters {
+  padding: var(--section-top-bottom-padding) 0;
+  background-color: var(--light-bgc);
+}
+
+.masters .section-title {
+  margin-bottom: 44px;
+}
+
 .masters-name {
   font-weight: 400;
   font-size: 18px;
@@ -310,9 +442,150 @@ header .container {
   color: var(--action-color);
 }
 
+.masters-list {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: -30px;
+  margin-left: -30px;
+}
+
+.masters-card {
+  margin-top: 30px;
+  margin-left: 30px;
+  flex-basis: calc((100% / 3) - 30px);
+}
+
+.masters-card-descr {
+  padding: 30px 82px 0;
+}
+
+.masters-name {
+  margin-bottom: 8px;
+}
+
+.masters-position {
+  margin-bottom: 30px;
+}
+
+.masters-social-list {
+  display: flex;
+}
+
+.masters-social-list .link {
+  display: inline-flex;
+}
+
+.link-icon {
+  transition: fill 250ms linear;
+}
+
+.masters-social-list > .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--primary-bgc);
+  cursor: pointer;
+}
+
+.masters-social-list > .item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.masters-social-list > .item:hover .link-icon {
+  fill: var(--action-color);
+}
 /* ----- END MASTERS ----- */
 
+/* ----- GALERY ----- */
+.galery {
+  padding: var(--section-top-bottom-padding) 0;
+  background-color: var(--primary-bgc);
+}
+
+.galery .section-description {
+  margin-bottom: 44px;
+}
+
+.galery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -30px;
+  margin-left: -30px;
+}
+
+.galery-grid > .item {
+  margin-top: 30px;
+  margin-left: 30px;
+  flex-basis: calc((100% / 4) - 30px);
+}
+/* ----- END GALERY ----- */
+
 /* ----- CONTACTS INFORMATION ----- */
+.contacts > .container {
+  outline: 1px solid red;
+}
+
+.contacts > .container {
+  display: flex;
+}
+
+.contacts {
+  background-color: #191c26;
+  background-image: url(../images/contacts/bg-img.png);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.form-contacts {
+  padding: var(--section-top-bottom-padding) 0 193px;
+  margin-right: 357px;
+}
+
+.data-contacts {
+  padding: var(--section-top-bottom-padding) 0;
+  /* background-image: url(../images/contacts/bg-img.png); */
+}
+
+.data-contacts > .section-title {
+  margin-bottom: 40px;
+}
+
+.data-item:not(:last-child),
+.time-work-title {
+  margin-bottom: 20px;
+}
+
+.data-item > .link {
+  display: flex;
+  align-items: center;
+}
+
+.contacts-icon {
+  margin-right: 16px;
+}
+
+.time-work-title::before {
+  margin-right: 26px;
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background-color: rgba(157, 164, 189, 0.4);
+}
+
+.time-work-title {
+  display: flex;
+  align-items: center;
+}
+
+.address-box {
+  margin-bottom: 70px;
+}
+
 .time-work-title {
   font-weight: 600;
   font-size: 11px;
@@ -329,14 +602,11 @@ header .container {
   background-color: #fff;
 }
 
-.container {
-  outline: 1px solid tomato;
-}
-
 .footer > .container {
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding-top: 36px;
+  padding-bottom: 36px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -344,10 +614,22 @@ header .container {
   display: flex;
 }
 
-.socials-link-list > .item:first-child {
-  margin-right: 40px;
+.socials-link-list > .item {
   display: flex;
   align-items: center;
+}
+
+.socials-link-list > .item:first-child {
+  margin-right: 40px;
+}
+
+.socials-link-list .link {
+  padding: 20px 0;
+}
+
+.socials-link-list .link:hover,
+.socials-link-list .link:focus {
+  color: var(--action-color);
 }
 
 .socials-link-list > .item:first-child::before {
